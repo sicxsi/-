@@ -12,7 +12,6 @@ import random
 
 s = requests.session()
 
-cookie = 'hkCM_2132_connect_is_bind=1; hkCM_2132_nofavfid=1; hkCM_2132_smile=1D1; hkCM_2132_saltkey=PPP7SI7l; hkCM_2132_lastvisit=1730714012; hkCM_2132_sid=MM25iI; hkCM_2132_sendmail=1; hkCM_2132_ulastactivity=b420%2BcrrM2QEywGsj1niX1JijEf263JPWEB5quR2tkz%2Bkjkxudny; hkCM_2132_auth=4595IZQ%2FfcdcZjfHrwu38%2B2qICC5lT999%2Bodp1CQ8L9fSwn1t40%2BFpVBiO9Wxv3pCEOMWc%2BgNpVIwaClS0%2BEQPY%2BYw; hkCM_2132_lastcheckfeed=40256%7C1730717690; hkCM_2132_checkfollow=1; hkCM_2132_checkpm=1; hkCM_2132_lastact=1730717693%09forum.php%09ajax'
 def index(cookie): #登录
      url = 'https://hostloc.com'
      header = {
