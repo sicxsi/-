@@ -12,9 +12,6 @@ import requests
 import os,sys
 import json
 
-access_token ="bf453854f863b1e7ebe140c7f52f1b75"
-user_token ="520182d4a2276c95af16f4b1bf61a4cd"
-
 def toSign(access_token,user_token):#签到
 
      url = "https://lmf.lvmifo.com/api/5dca57afa379e?m=toSign"
