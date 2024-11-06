@@ -9,7 +9,6 @@ import requests
 import re,os,sys,json,time
 
 
-authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3Lmtlaml3YW5qaWEubmV0IiwiaWF0IjoxNzMwNzI3Njg0LCJuYmYiOjE3MzA3Mjc2ODQsImV4cCI6MTczMTkzNzI4NCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiODM0OCJ9fX0.OMOy5g3Nm4UkH-zE2IlJm4XJe41n3QIJA7tE9-QjAfA"
 def getUserInfo(authorization):#我的信息
     url = "https://www.kejiwanjia.net/wp-json/b2/v1/getUserInfo"
     header = {
