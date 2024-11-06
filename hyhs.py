@@ -9,7 +9,6 @@ cron: 0 8 * * *
 import requests
 import os,sys,time
 import json
-uid = "122044"
 
 def index(uid):#登录
     url = "https://haoyi.haojim.com/index/user/getInfo"
