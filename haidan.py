@@ -46,7 +46,8 @@ def signin(cookie):
      try:
         response = requests.get(url=url,headers=header)
 
-        if str(response.status_code) == 200:
+        if response.status_code == 200:
+           
            torrents(cookie)
         else:
            print("打卡失败？")  
@@ -83,11 +84,6 @@ def torrents(cookie):
          matches2 = pattern3.findall(info)
          matches3 = pattern4.findall(info)
          matches4 = pattern5.findall(info)
-    #    print(matches[0])
-    #    print(matches1)
-    #    print(matches2[0][1])
-    #    print(matches3)
-    #    print(matches4)
          print( "用户名：" + matches[0] + " 魔力值：" + matches2[0][1] + " 分享率" + matches1[0] +  " 上传量" + matches3[0] + " 下载量" + matches4[0])
        else:
          print("查询失败")

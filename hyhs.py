@@ -67,7 +67,7 @@ def qiandao(uid):#签到
 
             qiandaoinfo(uid)
         else:
-            print("签到失败")               
+            print("你可能已经签到过了。")               
       except Exception as e:
             print("你输入的UID可能有问题")
 def qiandaoinfo(uid):#我的信息
@@ -90,7 +90,7 @@ def qiandaoinfo(uid):#我的信息
         if 0 == info['errno']:
             print(f"用户名：{info['data']['nickname']},获取奖励：{info['data']['money']}，签到天数：{info['data']['qd_days']}")
         else:
-            print("签到失败")               
+            print("获取失败")               
       except Exception as e:
             print("你输入的UID可能有问题")
 

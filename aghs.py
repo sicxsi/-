@@ -33,7 +33,7 @@ def qiandao1(Authorization): #签到状态
         response = requests.get(url=url,headers=header)
         info = json.loads(response.text)
         if 200 == info['status']:
-            print(f"您已签到；{info['data']['signDays']}天")
+            print(f"您已签到,{info['data']['signDays']}天")
         else:
             print("查询失败")   
 

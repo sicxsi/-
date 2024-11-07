@@ -115,7 +115,7 @@ def my(cookie):#查询信息
          #print(matches1[0][1])
          print( "用户名：" + matches[1][1] + " 金币" + matches1[0][1])
        else:
-         print("？") 
+         print("获取错误。") 
 
     except Exception as e:
          print(e)
