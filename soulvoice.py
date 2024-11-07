@@ -1,12 +1,12 @@
-"""
-name: 铃音
-Author: sicxs
-Date: 2024-11-1
-export soulvoice="cookie" @,&分割
-cron: 0 5 * * *
-"""
+
+# name: 铃音
+# Author: sicxs
+# Date: 2024-11-1
+# export soulvoice="cookie" @,&分割
+# cron: 10 9 * * *
+# new Env('铃音');
 import requests
-import re,os,sys
+import re,os,sys,re
 
 try:    
     from notify import send
@@ -110,7 +110,7 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
+    ck_run = re.split(r'&|@|\n',ck)
 
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')

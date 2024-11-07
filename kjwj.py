@@ -1,14 +1,14 @@
-"""
-name: 科技玩家
-Author: sicxs
-Date: 2024-11-4
-export kjwj="authorization" @,&分割
-cron: 0 8 * * *
-"""
+# name: 科技玩家
+# Author: sicxs
+# Date: 2024-11-4
+# export kjwj="authorization" @,&分割
+# cron: 15 8 * * *
+# new Env('科技玩家');
 import requests
 import re,os,sys,json,time
 
 
+authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvd3d3Lmtlaml3YW5qaWEubmV0IiwiaWF0IjoxNzMwNzI3Njg0LCJuYmYiOjE3MzA3Mjc2ODQsImV4cCI6MTczMTkzNzI4NCwiZGF0YSI6eyJ1c2VyIjp7ImlkIjoiODM0OCJ9fX0.OMOy5g3Nm4UkH-zE2IlJm4XJe41n3QIJA7tE9-QjAfA"
 def getUserInfo(authorization):#我的信息
     url = "https://www.kejiwanjia.net/wp-json/b2/v1/getUserInfo"
     header = {
@@ -91,7 +91,7 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
+    ck_run = re.split(r'&|@|\n',ck)
 
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')

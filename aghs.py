@@ -1,15 +1,15 @@
-"""
-name: 爱裹回收
-Author: sicxs
-Date: 2024-11-5
-微信小程序
-export wx_aghs="uid" @,&分割 
-cron: 0 8 * * *
-"""
+# name: 爱裹回收
+# Author: sicxs
+# Date: 2024-11-5
+# 微信小程序
+# export wx_aghs="uid" @,&分割 
+# cron: 15 8 * * *
+# new Env('爱裹回收');
+
 import requests
 import os,sys,time
-import json
-
+import json,re
+ 
 def qiandao1(Authorization): #签到状态
     url = "https://alipay.haliaeetus.cn/fuli/api/fuli/signedInfo"
     header = {
@@ -118,7 +118,7 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
+    ck_run = re.split(r'&|@|\n',ck)
 
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')

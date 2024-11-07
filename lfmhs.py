@@ -1,16 +1,18 @@
-"""
-name: 绿蜂蜜回收
-Author: sicxs
-Date: 2024-11-6
-微信小程序
-export wx_lfmhs="access_token#user_token" access_token#user_token分割 
-多号 @,&分割 
-其他时候不要再进小程序
-cron: 0 8 * * *
-"""
+# name: 绿蜂蜜回收
+# Author: sicxs
+# Date: 2024-11-6
+# 微信小程序
+# export wx_lmfhs="access_token#user_token" access_token#user_token分割 
+# 多号 @,&分割 
+# 其他时候不要再进小程序
+# cron: 1 8 * * *
+# new Env('绿蜂蜜回收');
 import requests
-import os,sys
+import os,sys,re
 import json
+
+access_token ="bf453854f863b1e7ebe140c7f52f1b75"
+user_token ="520182d4a2276c95af16f4b1bf61a4cd"
 
 def toSign(access_token,user_token):#签到
 
@@ -89,10 +91,9 @@ def getUserInfo(access_token,user_token):#登录信息
      except Exception as e:
           
           print("你的账号可能到期了")  
-
 def sicxs():
-    if os.environ.get("wx_lfmhs"):
-        ck = os.environ.get("wx_lfmhs")
+    if os.environ.get("wx_lmfhs"):
+        ck = os.environ.get("wx_lmfhs")
     else:
         ck = ""
         if ck == "":
@@ -100,11 +101,11 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
+    ck_run = re.split(r'&|@|\n',ck)
 
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')
-        params_list = ck_run_n.split('#')
+        params_list = re.split('#',ck_run_n)
         try:  
             getUserInfo(params_list[0],params_list[1])
         except Exception as e:

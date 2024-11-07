@@ -1,14 +1,14 @@
-"""
-name: 好衣回收
-Author: sicxs
-Date: 2024-11-5
-微信小程序
-export wx_hyhs="uid" @,&分割 
-cron: 0 8 * * *
-"""
+
+# name: 好衣回收
+# Author: sicxs
+# Date: 2024-11-5
+# 微信小程序
+# export wx_hyhs="uid" @,&分割 
+# cron: 0 8 * * *
+# new Env('好衣回收');
 import requests
 import os,sys,time
-import json
+import json,re
 
 def index(uid):#登录
     url = "https://haoyi.haojim.com/index/user/getInfo"
@@ -93,7 +93,7 @@ def qiandaoinfo(uid):#我的信息
             print("签到失败")               
       except Exception as e:
             print("你输入的UID可能有问题")
-            
+
 def sicxs():
     if os.environ.get("wx_hyhs"):
         ck = os.environ.get("wx_hyhs")
@@ -104,7 +104,7 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
+    ck_run = re.split(r'&|@|\n',ck)
 
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')

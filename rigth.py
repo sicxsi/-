@@ -1,10 +1,10 @@
-"""
-name: 恩山无线论坛
-Author: sicxs
-Date: 2024-11-3
-export rigth="cookie" @,&分割
-cron: 0 5 * * *
-"""
+
+# name: 恩山无线论坛
+# Author: sicxs
+# Date: 2024-11-3
+# export rigth="cookie" @,&分割
+# cron: 20 8 * * *
+# new Env('恩山无线论坛');
 import requests
 import re,os,sys
 
@@ -65,8 +65,7 @@ def sicxs():
 
             sys.exit()
 
-    ck_run = ck.split('@|&')
-
+    ck_run = re.split(r'&|@|\n',ck)
     for i, ck_run_n in enumerate(ck_run):
         print(f'\n----------- 账号【{i + 1}/{len(ck_run)}】执行 -----------')
         try:
