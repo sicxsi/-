@@ -76,8 +76,10 @@ def money(authorization): #红包信息
     info = json.loads(response.text)
     if 200 == info['code']:
       print(f"红包总额{info['data']['money']}")
-      if 1 < info['data']['money']:
+      if str(1) < info['data']['money']:
          cash(authorization)
+      else:
+        print("金额小于1元，暂不提现。")
     else:
         print("失败") 
 def cash(authorization): #提现
@@ -103,7 +105,8 @@ def cash(authorization): #提现
     else:
      print("失败。")
 def sicxs():
-    cookie = os.environ.get("wx_wtxq", "")
+    
+    cookie = os.environ.get("wx_wtxq")
     if not cookie: 
         print("请设置变量 wx_wtxq")
         sys.exit()
@@ -116,6 +119,9 @@ def sicxs():
             print(f"执行账号【{i + 1}】时发生错误: {e}")
 
     print(f'\n-----------  执 行  结 束 -----------')
+
+
 if __name__ == '__main__':
-       
+
+
  sicxs()
