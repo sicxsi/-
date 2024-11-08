@@ -1,4 +1,3 @@
-
 # name: 回收猿回收
 # Author: sicxs
 # Date: 2024-11-8
@@ -7,7 +6,7 @@
 # 抓小程序 -> 我的 auth和username值
 # 多号 @,&分割 
 # cron: 16 8 * * *
-
+# new Env('回收猿回收');
 import requests
 import json,os,sys,re
 import hashlib
