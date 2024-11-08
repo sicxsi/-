@@ -25,13 +25,11 @@ def index(wy_user,wy_pass):#账号密码登录
 
     data = {
         "host": "ikuuu.one",
-        "email": wy_user,  # 确保你已经定义了 wy_user
-        "passwd": wy_pass,  # 确保你已经定义了 wy_pass
+        "email": wy_user, 
+        "passwd": wy_pass,
         "code": ""
     }
-
     response = requests.post(url=url, headers=header, data=data)
-    # 获取 cookies
     cookies = response.cookies
     info(cookies)
 
