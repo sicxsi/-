@@ -2,7 +2,8 @@
 # Author: sicxs
 # Date: 2024-11-6
 # 微信小程序
-# export wx_lfmhs="access_token#user_token" access_token#user_token分割 
+# export wx_lfmhs="access_token#user_token" 
+# access_token#user_token分割 
 # 多号 @,&分割 
 # 其他时候不要再进小程序
 # cron: 1 8 * * *
@@ -42,7 +43,7 @@ def toSign(access_token,user_token):#签到
        response.encoding = "utf-8"
        info = json.loads(response.text)
        if 1 == info['code']:
-            print(f"签到成功，签到次数{info['data']['get_red_packet']}天，获得红包{info['data']['get_red_packet']}元")
+            print(f"签到成功,获得红包{info['data']['get_red_packet']}元")
        elif -1 == info['code']:
             print("今日已签到！")
        else:
