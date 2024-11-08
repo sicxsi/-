@@ -4,7 +4,7 @@
 # 微信小程序
 # export wx_ldhb="token"
 # 多号 @,&分割 
-# 建议更改昵称
+# 建议更改昵称,带提现
 # cron: 10 8 * * *
 # new Env('绿袋环保');
 import requests
@@ -23,25 +23,19 @@ def GetMyInfo(token): #登录信息
             "content-type": "application/json",
             "referer": "https://servicewechat.com/wx55da7d089eab6cdb/121/page-frame.html",
             }
-    try:
-       response = requests.get(url=url,headers=header)
-       response.encoding = "utf-8"
-       info = json.loads(response.text)
-       if  info['signed']:
-            print(f"用户名：{info['NickName']}")
-            Sign(token)
-            if 250 <= info['score']:
-                time.sleep(3)
-                SaveCash(token)
-            else:
-                print("积分不足，暂不提现")    
-       else:
-            print("获取用户信息失败")
-            print(info)
-       
-    except Exception as e:
-          
-          print("你的账号可能到期了")  
+
+    response = requests.get(url=url,headers=header)
+    response.encoding = "utf-8"
+    info = json.loads(response.text)
+
+    print(f"用户名：{info['NickName']}")
+    Sign(token)
+    if 250 <= info['score']:
+        time.sleep(3)
+        SaveCash(token)
+    else:
+        print("积分不足，暂不提现")    
+ 
 def Sign(token): #签到
     url = "https://www.lvdhb.com/MiniProgramApiCore/api/v3/Login/Sign"
     header = {
@@ -116,5 +110,5 @@ def sicxs():
 
     print(f'\n-----------  执 行  结 束 -----------')
 if __name__ == '__main__':
-       
+
  sicxs()
